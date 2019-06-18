@@ -1,15 +1,15 @@
 <template>
   <div class="home" @keydown="gifBlast(true)" @keyup="gifBlast(false)" tabindex="0">
-    <img alt="Vue logo" :src="setImg()" v-if="showGif">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <img alt="Gif" :src="setImg()" v-if="showGif">
+    <HelloWorld />
   </div>
 </template>
 
 <script lang="ts">
+
 import { Component, Vue } from "vue-property-decorator";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import store from "../store";
-import axios from "axios";
 
 @Component({
   components: {
@@ -18,7 +18,7 @@ import axios from "axios";
 })
 export default class Home extends Vue {
   public showGif: boolean = false;
-  private beforeMount() {
+  private created() {
     store.dispatch("setGif");
   }
   public setImg() {
