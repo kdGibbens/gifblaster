@@ -18,14 +18,23 @@ import axios from "axios";
 })
 export default class Home extends Vue {
   public showGif: boolean = false;
+  private beforeMount() {
+    store.dispatch("setGif");
+  }
   public setImg() {
     return store.state.gifURL;
   }
   private gifBlast(val: boolean) {
     this.showGif = val;
-    store.dispatch("setGif");
+    if (!val) {
+      store.dispatch("setGif");
+    }
   }
 }
 </script>
-
+<style lang="scss">
+.home {
+  position: relative;
+}
+</style>
 
