@@ -16,11 +16,11 @@ export default new Vuex.Store({
   actions: {
     setGif({ commit }) {
       // Async await to get giphy.
-      let imgURL = "";
+      // giphy API URL Random
+      const imgURL: string = "";
       axios.get(imgURL).then(response => {
         commit("SET_GIF", response.data.data.image_url);
       });
     }
-  },
-  getters: {}
+  }
 });
