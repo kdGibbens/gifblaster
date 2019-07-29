@@ -35,6 +35,10 @@ export default class Home extends Vue {
   }
   public playWagner() {
     this.audio = this.$refs.wagner;
+    this.audio.addEventListener("ended", () => {
+      this.audio.currentTime = 0;
+      this.audio.play();
+    });
     this.audio.play();
   }
   public focusDiv() {
@@ -47,8 +51,31 @@ export default class Home extends Vue {
 <style lang="scss">
 .home {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    126deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(129, 129, 223, 1) 50%,
+    rgba(0, 161, 255, 1) 100%
+  );
+}
+.home img {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+.home h1 {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  color: #ffffff;
 }
 </style>
 
