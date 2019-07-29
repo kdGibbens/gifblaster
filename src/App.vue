@@ -14,6 +14,8 @@
   color: #2c3e50;
   margin: 0;
   position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 </style>
 
